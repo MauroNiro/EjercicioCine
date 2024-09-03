@@ -32,7 +32,7 @@ while (option != 5)
             shows = show.DeleteShow(shows);
             break;
         case 4:
-            show.GetShows(shows);
+            Show.GetShows(shows);
             break;
         case 5:
             break;
