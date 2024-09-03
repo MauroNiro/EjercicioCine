@@ -82,7 +82,6 @@ namespace EjercicioCine.Classes
                 DateTime dateTime = new DateTime();
                 int price = 0;
                 int id;
-                int movieId;
                 while (!isSuccesfulPrice)
                 {
                     Console.WriteLine("Elegi que Show queres editar escribiendo su Id");
