@@ -83,6 +83,7 @@ namespace EjercicioCine.Classes
             bool isSuccesfulQuantity = false;
             bool isSuccesfulPrice = false;
             DateTime dateTime = new DateTime();
+            Show show = new Show();
             int price = 0;
             int id;
             int movieId;
@@ -108,7 +109,7 @@ namespace EjercicioCine.Classes
                             // Muestra las peliculas cargadas
                             if (movieId == 0)
                             {
-                                foundShow.GetMovies(movies);
+                                show.GetMovies(movies);
                             }
                             // Busca pelicula de el id mencionado y pide datos para hacer la carga
                             else
@@ -118,14 +119,14 @@ namespace EjercicioCine.Classes
                                 {
                                     while (!isSuccesfulPrice)// es solo el ultimo por que necesita de los demas.
                                     {
-                                        (isSuccesfulDate, dateTime) = foundShow.InsertDate();
+                                        (isSuccesfulDate, dateTime) = show.InsertDate();
                                         if (isSuccesfulDate && (movieId != foundShow.MovieId || dateTime.Day != foundShow.DateTime.Day))
                                         {
-                                            isSuccesfulQuantity = foundShow.CheckQuantity(shows, dateTime, movieFound);
+                                            isSuccesfulQuantity = show.CheckQuantity(shows, dateTime, movieFound);
                                         }
                                         else isSuccesfulQuantity = true;
                                         if (isSuccesfulQuantity)
-                                            (isSuccesfulPrice, price) = foundShow.InsertPrice();
+                                            (isSuccesfulPrice, price) = show.InsertPrice();
                                     }
                                     //edita los datos
                                     foundShow.MovieId = movieFound.MovieId;
@@ -133,7 +134,7 @@ namespace EjercicioCine.Classes
                                     foundShow.DateTime = dateTime;
                                     foundShow.MovieName = movieFound.MovieName;
                                     foundShow.DirectorId = movieFound.DirectorId;
-                                    foundShow.DirectorName = foundShow.GetDirectorName(movieFound, directors);
+                                    foundShow.DirectorName = show.GetDirectorName(movieFound, directors);
                                     return shows;
                                 }
                             }
