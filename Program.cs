@@ -37,7 +37,7 @@ while (option != 5)
         case 5:
             break;
         default:
-            Console.WriteLine("Por favor elegi una opcion entre 1 y 4");
+            Console.WriteLine("Por favor elegi una opcion entre 1 y 5");
             break;
     }
 }

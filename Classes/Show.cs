@@ -186,7 +186,7 @@ namespace EjercicioCine.Classes
             if (shows.Count > 0)
             {
                 foreach (Show show in shows)
-                    Console.WriteLine($"Hay un show a las {show.DateTime.ToString()} con ID: {show.ShowId.ToString()}pelicula: {show.MovieName} y director: {show.DirectorName}");
+                    Console.WriteLine($"Hay un show a las {show.DateTime.ToString()} con ID: {show.ShowId.ToString()} pelicula: {show.MovieName} y director: {show.DirectorName}");
             }
         }
         //pide y insera los valores de fecha para no repetir codigo.
