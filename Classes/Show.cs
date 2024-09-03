@@ -243,9 +243,9 @@ namespace EjercicioCine.Classes
                     {
                         if (DateTime.TryParse($"{month}/{day}/{DateTime.Now.Year} {time}", out dateTime))
                         {
-                            if (dateTime < DateTime.Today)
+                            if (dateTime < DateTime.Now)
                             {
-                                Console.WriteLine("La fecha no puede ser anterior a hoy");
+                                Console.WriteLine("La fecha no puede ser anterior a la hora y dia actual.");
                                 return (false, dateTime);
                             }
                             return (true, dateTime);
