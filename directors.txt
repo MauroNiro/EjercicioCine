@@ -1,0 +1,14 @@
+[
+	{
+	"DirectorId": 1,
+	"DirectorName":"Christopher Nolan|"
+	},
+	{
+	"DirectorId": 2,
+	"DirectorName":"George Lucas"
+	},
+	{
+	"DirectorId": 3,
+	"DirectorName": "Damián Szifron"
+	}
+]

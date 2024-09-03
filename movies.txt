@@ -1,0 +1,30 @@
+[
+	{
+		"MovieId": 1,
+		"MovieName":"Star Wars: Episode 1",
+		"DirectorId": 2,	
+		"Length": 120,
+		"IsNational": false
+	},
+	{
+		"MovieId": 2,
+		"MovieName":"Star Wars: Episode 2",
+		"DirectorId": 2,	
+		"Length": 120,
+		"IsNational": false
+	},
+	{
+		"MovieId": 3,
+		"MovieName":"Batman Begins",
+		"DirectorId": 1,
+		"Length": 120,
+		"IsNational": false
+	},
+	{
+		"MovieId": 4,
+		"MovieName":"Relatos Salvajes",
+		"DirectorId": 3,
+		"Length": 122,
+		"IsNational": true
+	}
+]
