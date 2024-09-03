@@ -25,7 +25,6 @@ namespace EjercicioCine.Classes
             bool isSuccesfulDate = false;
             bool isSuccesfulQuantity = false;
             bool isSuccesfulPrice = false;
-            int id;
             int price = 0;
             Console.Clear();
             try
@@ -38,11 +37,15 @@ namespace EjercicioCine.Classes
                     {
                         while (!isSuccesfulPrice)//es solo el ultimo por que necesita de los demas.
                         {
-                            (isSuccesfulDate, dateTime) = InsertDate();
-                            if (isSuccesfulDate)
+                            if (!isSuccesfulDate)
+                                (isSuccesfulDate, dateTime) = InsertDate();
+                            if (isSuccesfulDate && !isSuccesfulQuantity)
                                 isSuccesfulQuantity = CheckQuantity(shows, dateTime, movieFound);
                             if (isSuccesfulQuantity)
+                            {
                                 (isSuccesfulPrice, price) = InsertPrice();
+                            }
+                            else isSuccesfulDate = false;
                         }
                         //Hace la carga
                         Show show = new();
@@ -103,14 +106,18 @@ namespace EjercicioCine.Classes
                                 {
                                     while (!isSuccesfulPrice)// es solo el ultimo por que necesita de los demas.
                                     {
-                                        (isSuccesfulDate, dateTime) = InsertDate();
-                                        if (isSuccesfulDate && (movieFound.MovieId != foundShow.MovieId || dateTime.Date != foundShow.DateTime.Date))
+                                        if(!isSuccesfulDate)
+                                            (isSuccesfulDate, dateTime) = InsertDate();
+                                        if (isSuccesfulDate && !isSuccesfulQuantity &&(movieFound.MovieId != foundShow.MovieId || dateTime.Date != foundShow.DateTime.Date))
                                         {
                                             isSuccesfulQuantity = CheckQuantity(shows, dateTime, movieFound);
                                         }
                                         else isSuccesfulQuantity = true;
                                         if (isSuccesfulQuantity)
+                                        {
                                             (isSuccesfulPrice, price) = InsertPrice();
+                                        }
+                                        else isSuccesfulDate = false;
                                     }
                                     //edita los datos
                                     foundShow.MovieId = movieFound.MovieId;
@@ -209,6 +216,10 @@ namespace EjercicioCine.Classes
             {
                 foreach (Show show in shows)
                     Console.WriteLine($"Hay un show a las {show.DateTime.ToString()} con ID: {show.ShowId.ToString()} pelicula: {show.MovieName} y director: {show.DirectorName} y precio {show.Price}");
+            }
+            else
+            {
+                Console.WriteLine("No hay funciones");
             }
         }
         //pide y insera los valores de fecha para no repetir codigo.
