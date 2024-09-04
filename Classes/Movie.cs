@@ -18,7 +18,7 @@ namespace EjercicioCine.Classes
 
 
 
-        public static List<Movie> LoadPelicula()
+        public static List<Movie> LoadMovie()
         {
             List<Movie>? movies = new List<Movie>();
             try

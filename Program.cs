@@ -5,7 +5,7 @@ Show show = new Show();
 List<Show> shows = new List<Show>();
 Console.WriteLine("Bienvenido al Cine Demo");
 List<Director> directors =  Director.LoadDirector();
-List<Movie> movies =Movie.LoadPelicula();
+List<Movie> movies =Movie.LoadMovie();
 int option = 0;
 
 
