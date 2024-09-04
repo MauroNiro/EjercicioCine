@@ -31,7 +31,10 @@ while (option != 5)
                 Console.WriteLine("No hay funciones para editar.");
             break;
         case 3:
-            shows = show.DeleteShow(shows);
+            if (shows.Count > 0)
+                shows = show.DeleteShow(shows);
+            else
+                Console.WriteLine("No hay funciones para borrar.");
             break;
         case 4:
             Show.GetShows(shows);
