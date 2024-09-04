@@ -25,7 +25,10 @@ while (option != 5)
             shows = show.AddShow(movies, directors,shows);
             break;
         case 2:
-            shows = show.EditShow(shows,movies,directors);
+            if (shows.Count > 0)
+                shows = show.EditShow(shows, movies, directors);
+            else
+                Console.WriteLine("No hay funciones para editar.");
             break;
         case 3:
             shows = show.DeleteShow(shows);

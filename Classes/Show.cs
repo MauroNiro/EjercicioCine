@@ -108,11 +108,14 @@ namespace EjercicioCine.Classes
                                     {
                                         if(!isSuccesfulDate)
                                             (isSuccesfulDate, dateTime) = InsertDate();
-                                        if (isSuccesfulDate && !isSuccesfulQuantity &&(movieFound.MovieId != foundShow.MovieId || dateTime.Date != foundShow.DateTime.Date))
+                                        if (isSuccesfulDate && !isSuccesfulQuantity)
                                         {
-                                            isSuccesfulQuantity = CheckQuantity(shows, dateTime, movieFound);
+                                            if (movieFound.MovieId != foundShow.MovieId || dateTime.Date != foundShow.DateTime.Date)
+                                            {
+                                                isSuccesfulQuantity = CheckQuantity(shows, dateTime, movieFound);
+                                            }
+                                            else isSuccesfulQuantity = true;
                                         }
-                                        else isSuccesfulQuantity = true;
                                         if (isSuccesfulQuantity)
                                         {
                                             (isSuccesfulPrice, price) = InsertPrice();
