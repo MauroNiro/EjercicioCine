@@ -1,14 +1,11 @@
 ﻿using EjercicioCine.Classes;
-using System.IO;
-using System.Reflection;
-Show show = new Show();
-List<Show> shows = new List<Show>();
+var show = new Show();
+var shows = new List<Show>();
+var directors =  Director.LoadDirector();
+var movies =Movie.LoadMovie();
+var option = 0;
+
 Console.WriteLine("Bienvenido al Cine Demo");
-List<Director> directors =  Director.LoadDirector();
-List<Movie> movies =Movie.LoadMovie();
-int option = 0;
-
-
 //Menu
 while (option != 5)
 {
@@ -17,8 +14,8 @@ while (option != 5)
     Console.WriteLine("3.Eliminar una funcion.");
     Console.WriteLine("4.Ver las funciones actuales");
     Console.WriteLine("5.Cerrar aplicacion.");
-    string? read = Console.ReadLine();
-    bool isInt = int.TryParse(read, out option);
+    var read = Console.ReadLine();
+    int.TryParse(read, out option);
     switch (option)
     {
         case 1:

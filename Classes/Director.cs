@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace EjercicioCine.Classes
 {
@@ -16,13 +11,13 @@ namespace EjercicioCine.Classes
         public static List<Director> LoadDirector()
         {
 
-            List<Director>? directors = new List<Director>();
+            var directors = new List<Director>();
             try
             {
-                string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                string sFile = System.IO.Path.Combine(sCurrentDirectory, @"..\..\..\directors.txt");
-                string sFilePath = Path.GetFullPath(sFile);
-                string json = File.ReadAllText(sFilePath);
+                var sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var sFile = System.IO.Path.Combine(sCurrentDirectory, @"..\..\..\directors.txt");
+                var sFilePath = Path.GetFullPath(sFile);
+                var json = File.ReadAllText(sFilePath);
                 directors = JsonSerializer.Deserialize<List<Director>>(json);
             }
             catch (Exception)

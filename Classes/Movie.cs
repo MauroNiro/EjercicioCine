@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
+
 
 namespace EjercicioCine.Classes
 {
-    internal class Movie
+    public class Movie
     {
         public int MovieId { get; set; }
         public string? MovieName { get; set; }
@@ -20,13 +16,13 @@ namespace EjercicioCine.Classes
 
         public static List<Movie> LoadMovie()
         {
-            List<Movie>? movies = new List<Movie>();
+            var movies = new List<Movie>();
             try
             {
-                string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                string sFile = System.IO.Path.Combine(sCurrentDirectory, @"..\..\..\movies.txt");
-                string sFilePath = Path.GetFullPath(sFile);
-                string json = File.ReadAllText(sFilePath);
+                var sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var sFile = System.IO.Path.Combine(sCurrentDirectory, @"..\..\..\movies.txt");
+                var sFilePath = Path.GetFullPath(sFile);
+                var json = File.ReadAllText(sFilePath);
                 movies = JsonSerializer.Deserialize<List<Movie>>(json);
             }
             catch (Exception)
