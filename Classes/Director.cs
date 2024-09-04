@@ -19,13 +19,16 @@ namespace EjercicioCine.Classes
             List<Director>? Directors = new List<Director>();
             try
             {
-                string json = File.ReadAllText("F:\\Primero\\EjCine\\EjercicioCine\\directors.txt");
+                string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string sFile = System.IO.Path.Combine(sCurrentDirectory, @"..\..\..\directors.txt");
+                string sFilePath = Path.GetFullPath(sFile);
+                string json = File.ReadAllText(sFilePath);
                 Directors = JsonSerializer.Deserialize<List<Director>>(json);
                 return Directors;
             }
             catch (Exception)
             {
-                Console.WriteLine("File directors.txt could not open.");
+                Console.WriteLine("El archivo directors.txt no se pudo abrir.");
             }
 
             return null;

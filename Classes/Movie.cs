@@ -23,12 +23,15 @@ namespace EjercicioCine.Classes
             List<Movie>? movies = new List<Movie>();
             try
             {
-                string json = File.ReadAllText("F:\\Primero\\EjCine\\EjercicioCine\\movies.txt");
+                string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string sFile = System.IO.Path.Combine(sCurrentDirectory, @"..\..\..\movies.txt");
+                string sFilePath = Path.GetFullPath(sFile);
+                string json = File.ReadAllText(sFilePath);
                 movies = JsonSerializer.Deserialize<List<Movie>>(json);
             }
             catch (Exception)
             {
-                Console.WriteLine("File movies.txt could not open.");
+                Console.WriteLine("El archivo movies.txt no se pudo abrir");
             }
 
             return movies;
