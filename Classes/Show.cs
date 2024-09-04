@@ -46,7 +46,7 @@ namespace EjercicioCine.Classes
                                 }
                             }
                             if (isSuccesfulDate && !isSuccesfulQuantity)
-                                isSuccesfulQuantity = CheckQuantity(shows, dateTime, movieFound);
+                                isSuccesfulQuantity = ValidateQuantity(shows, dateTime, movieFound);
                             if (isSuccesfulQuantity)
                             {
                                 Console.WriteLine("Ahora por ultimo indica el precio de la funcion");
@@ -133,7 +133,7 @@ namespace EjercicioCine.Classes
                                         {
                                             if (movieFound.MovieId != foundShow.MovieId || dateTime.Date != foundShow.DateTime.Date)
                                             {
-                                                isSuccesfulQuantity = CheckQuantity(shows, dateTime, movieFound);
+                                                isSuccesfulQuantity = ValidateQuantity(shows, dateTime, movieFound);
                                             }
                                             else isSuccesfulQuantity = true;
                                         }
@@ -270,7 +270,6 @@ namespace EjercicioCine.Classes
         }
         private bool ValidateTime(string daystr, string monthstr, string timestr)
         {
-            Console.WriteLine($"{monthstr}/{daystr}/{DateTime.Now.Year} {timestr}");
             if (DateTime.TryParse($"{monthstr}/{daystr}/{DateTime.Now.Year} {timestr}", out var datetime)){ 
                 if (datetime < DateTime.Now)
                 {
@@ -308,7 +307,7 @@ namespace EjercicioCine.Classes
             }
         }
         //Checks the quantity of functions are within expected limits
-        private bool CheckQuantity(List<Show> shows, DateTime dateTime, Movie movie)
+        private bool ValidateQuantity(List<Show> shows, DateTime dateTime, Movie movie)
         {
             var cantShowsMovie = shows
                                 .Where(show => show.MovieId == movie.MovieId && show.DateTime.Date == dateTime.Date).Count();
