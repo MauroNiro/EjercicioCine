@@ -35,7 +35,7 @@ namespace EjercicioCine.Classes
 
                     if (movieFound != null)
                     {
-                        while (!isSuccesfulPrice)//es solo el ultimo por que necesita de los demas.
+                        while (!isSuccesfulPrice)//Its only this bool because its the last one checked.
                         {
                             if (!isSuccesfulDate)
                                 (isSuccesfulDate, dateTime) = InsertDate();
@@ -91,7 +91,7 @@ namespace EjercicioCine.Classes
                     Console.WriteLine("Si queres ver cuales show estan ya programados envia 0");
                     if (int.TryParse(Console.ReadLine(), out id))
                     {
-                        //verifica si pidio ver cuales hay
+                        //Verifies if asked to see wich shows are there
                         if (id == 0)
                         {
                             GetShows(shows);
@@ -104,7 +104,7 @@ namespace EjercicioCine.Classes
                                 Movie? movieFound = InsertMovie(movies);
                                 if (movieFound != null)
                                 {
-                                    while (!isSuccesfulPrice)// es solo el ultimo por que necesita de los demas.
+                                    while (!isSuccesfulPrice)// Its only this bool because its the last one checked.
                                     {
                                         if(!isSuccesfulDate)
                                             (isSuccesfulDate, dateTime) = InsertDate();
@@ -119,7 +119,7 @@ namespace EjercicioCine.Classes
                                         }
                                         else isSuccesfulDate = false;
                                     }
-                                    //edita los datos
+                                    //loads new data
                                     foundShow.MovieId = movieFound.MovieId;
                                     foundShow.Price = price;
                                     foundShow.DateTime = dateTime;
@@ -155,12 +155,11 @@ namespace EjercicioCine.Classes
                 Console.WriteLine("Por favor ingresa el ID de la pelicula que se va a ver en la nueva funcion.");
                 Console.WriteLine("Si queres podes mirar los ID enviando 0.");
                 int.TryParse(Console.ReadLine(), out id);
-                // Muestra las peliculas cargadas
+                // Displays the movies loaded
                 if (id == 0)
                 {
                     GetMovies(movies);
                 }
-                // Busca pelicula de el id mencionado y pide datos para hacer la carga
                 else
                 {
                     movieFound = movies.Where(movie => movie.MovieId == id).FirstOrDefault();
@@ -222,7 +221,7 @@ namespace EjercicioCine.Classes
                 Console.WriteLine("No hay funciones");
             }
         }
-        //pide y insera los valores de fecha para no repetir codigo.
+        //asks and add the DateTime values
         internal (bool, DateTime) InsertDate()
         {
             int day = 0;
@@ -291,7 +290,7 @@ namespace EjercicioCine.Classes
                 return (false, 0);
             }
         }
-        //Chequea que la cantidad de funciones este dentro de los limites esperados.
+        //Checks the quantity of functions are within expected limits
         internal bool CheckQuantity(List<Show> shows, DateTime dateTime, Movie movie)
         {
             int cantShowsMovie = shows

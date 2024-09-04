@@ -16,22 +16,21 @@ namespace EjercicioCine.Classes
         public static List<Director> LoadDirector()
         {
 
-            List<Director>? Directors = new List<Director>();
+            List<Director>? directors = new List<Director>();
             try
             {
                 string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
                 string sFile = System.IO.Path.Combine(sCurrentDirectory, @"..\..\..\directors.txt");
                 string sFilePath = Path.GetFullPath(sFile);
                 string json = File.ReadAllText(sFilePath);
-                Directors = JsonSerializer.Deserialize<List<Director>>(json);
-                return Directors;
+                directors = JsonSerializer.Deserialize<List<Director>>(json);
             }
             catch (Exception)
             {
                 Console.WriteLine("El archivo directors.txt no se pudo abrir.");
             }
 
-            return null;
+            return directors;
 
         }
     }

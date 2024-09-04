@@ -17,7 +17,6 @@ while (option != 5)
     Console.WriteLine("3.Eliminar una funcion.");
     Console.WriteLine("4.Ver las funciones actuales");
     Console.WriteLine("5.Cerrar aplicacion.");
-    // valida la opcion
     string? read = Console.ReadLine();
     bool isInt = int.TryParse(read, out option);
     switch (option)
