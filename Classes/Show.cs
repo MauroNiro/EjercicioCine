@@ -235,7 +235,7 @@ namespace EjercicioCine.Classes
             {
                 Console.WriteLine("Ahora ingresa en que mes va a estar esta funcion");
                 string? monthstr = Console.ReadLine();
-                if (int.TryParse(monthstr, out  month) && month <= 12 && month > 1)
+                if (int.TryParse(monthstr, out  month) && month <= 12 && month >= 1)
                 {
                     Console.WriteLine("Ahora ingresa la hora que va a estar esta funcion en un formato hh:mm");
                     string? timestr = Console.ReadLine();
